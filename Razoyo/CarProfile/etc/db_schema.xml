@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="razoyo_cars" resource="default" charset="utf8" engine="innodb" comment="Razoyo Cars Table">
+        <column name="entity_id" xsi:type="int" unsigned="true" nullable="false" identity="true" comment="Entity ID" />
+        <column name="customer_id" xsi:type="int" unsigned="true" nullable="true" comment="Customer ID"/>
+        <column name="car_id" xsi:type="varchar" nullable="false" length="124" comment="Car ID" />
+        <column name="make" xsi:type="varchar" nullable="false" length="124" comment="Car Make" />
+        <column name="model" xsi:type="varchar" nullable="false" length="124" comment="Car Model" />
+        <column name="price" xsi:type="decimal" precision="11" scale="2" default="0" unsigned="true" nullable="false" comment="Car price" />
+        <column name="year" xsi:type="int" unsigned="true" nullable="false" comment="Car year" />
+        <column name="seats" xsi:type="int" unsigned="true" nullable="false" comment="Car number of seats" />
+        <column name="mpg" xsi:type="int" unsigned="true" nullable="false" comment="Car miles per gallon" />
+        <column name="image" xsi:type="varchar" nullable="false" length="1024" comment="Car image" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="RAZOYO_CARS_CUSTOMER_ID">
+            <column name="customer_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="RAZOYO_CARS_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+            table="razoyo_cars" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="NO ACTION"/>
+    </table>
+</schema>

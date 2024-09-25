@@ -1,0 +1,21 @@
+{
+    "razoyo_cars": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "car_id": true,
+            "make": true,
+            "model": true,
+            "price": true,
+            "year": true,
+            "seats": true,
+            "mpg": true,
+            "image": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "RAZOYO_CARS_CUSTOMER_ID": true,
+            "RAZOYO_CARS_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    }
+}

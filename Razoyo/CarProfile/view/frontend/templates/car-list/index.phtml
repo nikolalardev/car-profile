@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Razoyo\CarProfile\ViewModel\CarProfile $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+$car = $viewModel->getCarPerCustomer();
+?>
+<?php if (isset($car["id"])): ?>
+<table class="data table">
+    <thead>
+        <tr>
+            <th scope="col" class="col total"><?= __("Make") ?></th>
+            <th scope="col" class="col total"><?= __("Model") ?></th>
+            <th scope="col" class="col date"><?= __("Year") ?></th>
+            <th scope="col" class="col total"><?= __("Seats") ?></th>
+            <th scope="col" class="col total"><?= __("Mpg") ?></th>
+            <th scope="col" class="col total"><?= __("Price") ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="col"><?= $car['make'] ?></td>
+            <td class="col"><?= $car['model'] ?></td>
+            <td class="col"><?= $car['year'] ?></td>
+            <td class="col"><?= $car['seats'] ?></td>
+            <td class="col"><?= $car['mpg'] ?></td>
+            <td class="col"><?= $car['price'] ?></td>
+        </tr>
+        <tr>
+            <td colspan="7">
+                <img src="<?= $car['image']; ?>" alt="<?= $car['make'] ?> <?= $car['model'] ?>"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<?php endif; ?>
+<div>
+    <a href="/carlist/index/edit"><?= __("Select car")?></a>
+</div>

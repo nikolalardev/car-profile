@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>My Car Edit Profile</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My Car Profile</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block
+                class="Razoyo\CarProfile\Block\Form"
+                name="razoyo-car-profile-car-form"
+                template="Razoyo_CarProfile::car-list/edit.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">Razoyo\CarProfile\ViewModel\CarProfile</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="customer_account_navigation">
+            <action method="setActive">
+                <argument name="path" xsi:type="string">carlist</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

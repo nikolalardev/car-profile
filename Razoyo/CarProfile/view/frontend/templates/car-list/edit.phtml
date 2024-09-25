@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Razoyo\CarProfile\ViewModel\CarProfile $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+?>
+
+<form action="<?= $block->getFormAction() ?>" method="post" enctype="multipart/form-data">
+    <fieldset class="fieldset">
+        <div class="field car required">
+            <label class="label" for="car">
+                <span>Select Car</span>
+            </label>
+            <div class="control">
+                <select name="car_id" id="car-id" class="required-entry"
+                        data-validate="{'validate-select':true}" aria-required="true">
+                    <?php foreach ($viewModel->getCarOptions() as $option): ?>
+                        <option value="<?= $option['value'] ?>"><?= $option['label'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="primary">
+            <button type="submit" title="Save" class="action save primary">Submit</button>
+        </div>
+    </fieldset>
+    <?= $block->getChildHtml('formkey') ?>
+</form>
